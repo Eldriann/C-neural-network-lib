@@ -48,12 +48,31 @@ Reinforced: by giving the neural network it's initial state, the function to cal
 
 To get a neural network guess call the feed_forward or feed_forward_from_mat function depending on your encoding and what suits you better.
 
-Example:
+Example from float array:
 ```c
+nn_neural_network_t *nn = create_neural_network(2, 1, 2, 1);
 float inputs[2] = {0.0, 1.0};
 float *guess = feed_forward(nn, inputs);
+
 //Use the guess as you like
 free(guess); //Don't forget to free the guess
+destroy_nn_neural_network(nn);
+```
+Example from matrix:
+```c
+nn_neural_network_t *nn = create_neural_network(2, 1, 2, 1);
+nn_matrix_t *inputs = create_empty_nn_matrix(2, 1);
+nn_matrix_t *guess = NULL;
+
+if (inputs == NULL)
+  return; //ERROR
+inputs->values[0][0] = 0.0;
+inputs->values[1][0] = 1.0;
+guess = feed_forward_from_mat(nn, inputs);
+//Use the guess as you like
+destroy_nn_matrix(inputs);
+destroy_nn_matrix(guess); //Don't forget to free the guess
+destroy_nn_neural_network(nn);
 ```
 
 You can generate documentation for the project using doxygen.
