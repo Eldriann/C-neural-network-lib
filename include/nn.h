@@ -7,6 +7,11 @@
 
 /* File created the 10/04/2018 at 13:13:09 by julian.frabel@epitech.eu */
 
+/**
+** \file nn.h
+** \brief main header including all sub header files
+*/
+
 #ifndef __NN__H_
 	#define __NN__H_
 
