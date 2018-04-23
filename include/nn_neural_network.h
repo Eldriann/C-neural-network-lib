@@ -12,6 +12,7 @@
 
 	#include <stdbool.h>
 	#include "nn_settings.h"
+	#include "nn_matrix.h"
 
 	typedef struct nn_neural_network_s nn_neural_network_t;
 	typedef struct nn_neural_layer_s nn_neural_layer_t;
@@ -28,14 +29,20 @@
 		float float_value;
 	};
 
+	/***
+	** \brief Structure representing an action taken
+	*/
 	struct nn_replay_memory_s {
-		nn_matrix_t *state;
-		int action;
-		float reward_got;
-		nn_matrix_t *new_state;
-		bool is_final;
+		nn_matrix_t *state; /***< State before the action */
+		int action; /***< Action taken */
+		float reward_got; /***< Reward got by taking this action */
+		nn_matrix_t *new_state; /***< State after the action */
+		bool is_final; /***< Is the new state a final state */
 	};
 
+	/***
+	** \brief Structure representing the reinforcement settings of a nn
+	*/
 	struct nn_reinforcement_settings_s {
 		unsigned int episodes; /***< Number of simulations to run */
 		float gamma; /***< Discount rate for expected futur reward */
