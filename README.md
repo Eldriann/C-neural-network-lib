@@ -75,6 +75,6 @@ destroy_nn_matrix(guess); //Don't forget to free the guess
 destroy_nn_neural_network(nn);
 ```
 
-You can generate documentation for the project using doxygen.
+You can generate documentation for the project using doxygen (doxygen config then open doc/html/index.html).
 
 If you have any questions send a mail to julian.frabel@epitech.eu and i will respond to it as quick as i can.
